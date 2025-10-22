@@ -1,0 +1,151 @@
+/* Custom Styles for Dr. R. B. Ankam Website (Deep Indigo Theme - Final) */
+
+/* --- Custom Variables and Colors --- */
+:root {
+    --color-indigo: #1a237e;      /* Deep Indigo Blue (Primary Action/Text) */
+    --color-indigo-dark: #12195f; /* Darker Indigo (Section BG/Footer) */
+    --color-indigo-darker: #0c113e; /* Even darker shade for internal components */
+    --color-indigo-light-bg: #e8eaf6; /* Very Light Indigo Tint (Section BG) */
+    --color-yellow: #FFC300;      /* Vibrant Yellow/Gold (Accent/Energy) */
+    --color-white: #FFFFFF;
+}
+
+/* --- Typography and Body --- */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    background-color: var(--color-white); 
+    font-weight: 400;
+}
+
+.header-font {
+    font-family: 'Lora', serif;
+    font-weight: 700;
+}
+
+/* --- Color Utility Classes --- */
+.text-indigo { color: var(--color-indigo) !important; }
+.text-indigo-dark { color: var(--color-indigo-dark) !important; }
+.text-yellow { color: var(--color-yellow) !important; }
+
+.bg-yellow { background-color: var(--color-yellow) !important; }
+.section-light-indigo-bg { background-color: var(--color-indigo-light-bg); }
+.section-dark-bg { background-color: var(--color-indigo-dark); }
+.bg-indigo-darker { background-color: var(--color-indigo-darker) !important; }
+.text-white-75 { color: rgba(255, 255, 255, 0.75) !important; }
+
+/* --- Navigation Bar (Ensuring White Text and Logo Sizing) --- */
+.navbar {
+    background-color: var(--color-indigo) !important;
+    box-shadow: 0 4px 10px rgba(26, 35, 126, 0.5);
+}
+.nav-logo {
+    height: 35px; /* Fixed height for small logo in navbar */
+    width: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.navbar-brand {
+    font-size: 1.6rem;
+    color: var(--color-yellow) !important;
+}
+.nav-link {
+    color: white !important; /* Enforce White Text */
+    font-weight: 600;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+.nav-link:hover {
+    color: var(--color-yellow) !important;
+    border-bottom: 3px solid var(--color-yellow);
+}
+
+/* --- Hero Section Styling --- */
+.hero-section {
+    background-color: var(--color-indigo-dark);
+    background-image: linear-gradient(to bottom, var(--color-indigo) 0%, var(--color-indigo-dark) 100%); 
+    padding-top: 10rem;
+    padding-bottom: 8rem;
+    min-height: 95vh;
+}
+.hero-portrait {
+    width: 100%;
+    max-width: 350px; 
+    height: 400px; /* Enforced portrait height */
+    object-fit: cover;
+    border: 8px solid var(--color-yellow);
+    box-shadow: 0 0 30px rgba(255, 195, 0, 0.8);
+    transition: transform 0.3s;
+}
+.hero-portrait:hover {
+    transform: scale(1.03);
+}
+
+/* --- Fixed Image Sizing Containers for Visual Consistency --- */
+
+/* 1. Influence Section (High-Level Meetings) Image Container */
+.image-equal-container {
+    height: 300px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden; 
+}
+.image-equal-container img {
+    height: 200px; /* Fixed image height */
+    width: 100%;
+    object-fit: cover; /* Crop to fit container */
+}
+
+/* 2. Gallery Section Image Container */
+.gallery-box {
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 5px solid var(--color-white);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    height: 250px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.gallery-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.gallery-box img {
+    height: 200px; /* Fixed height for gallery images */
+    object-fit: cover;
+    width: 100%;
+}
+
+/* --- Awards Logos (Lady Legends & ITAP) --- */
+.awards-logo {
+    max-width: 250px;
+    height: auto;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+}
+.logo-filter {
+    /* Filter for Raja Ratna Trust Logo on dark BG */
+    filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(255, 195, 0, 0.8));
+}
+
+/* --- Other Visual Effects --- */
+.card-float { transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.card-float:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) !important; }
+.card-hover-shadow:hover { box-shadow: 0 0 15px rgba(255, 195, 0, 0.5) !important; }
+.timeline { border-left: 3px solid var(--color-indigo-light-bg); padding-left: 20px; position: relative; }
+.timeline-item:before {
+    content: ''; position: absolute; left: -28px; top: 5px; width: 15px; height: 15px; border-radius: 50%;
+    background-color: var(--color-yellow); border: 4px solid var(--color-indigo);
+}
+.border-yellow-thin { border: 3px solid var(--color-yellow); }
+.btn-social-icon { background-color: var(--color-indigo); color: white; transition: background-color 0.3s; }
+.btn-social-icon:hover { background-color: var(--color-yellow); color: var(--color-indigo-dark) !important; }
+.footer-link:hover { color: var(--color-yellow) !important; padding-left: 5px; transition: padding-left 0.2s; }
+.quote-box { background-color: rgba(255, 255, 255, 0.1); border-left: 5px solid var(--color-yellow); }
+.btn-yellow { background-color: var(--color-yellow); border-color: var(--color-yellow); color: var(--color-indigo-dark); transition: background-color 0.3s, transform 0.3s; }
+.btn-yellow:hover { background-color: #FFD750; transform: translateY(-2px); }
+@keyframes pulse-yellow { 0% { box-shadow: 0 0 0 0 rgba(255, 195, 0, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(255, 195, 0, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 195, 0, 0); } }
+.pulse-effect-yellow { animation: pulse-yellow 2s infinite; }
