@@ -75,14 +75,46 @@ body {
     border: 8px solid var(--color-yellow);
     box-shadow: 0 0 30px rgba(255, 195, 0, 0.8);
     transition: transform 0.3s;
+    border-radius: 5px; /* Slight rounding for the portrait image */
 }
 .hero-portrait:hover {
     transform: scale(1.03);
 }
 
-/* --- Fixed Image Sizing Containers for Visual Consistency --- */
+/* --- Buttons --- */
+.btn-yellow {
+    background-color: var(--color-yellow);
+    border-color: var(--color-yellow);
+    color: var(--color-indigo-dark);
+    transition: background-color 0.3s, transform 0.3s;
+}
+.btn-yellow:hover {
+    background-color: #FFD750;
+    transform: translateY(-2px);
+}
+.btn-indigo {
+    background-color: var(--color-indigo);
+    border-color: var(--color-indigo);
+    color: var(--color-white);
+    transition: background-color 0.3s, transform 0.3s;
+}
+.btn-indigo:hover {
+    background-color: var(--color-indigo-darker);
+    transform: translateY(-2px);
+}
 
-/* 1. Influence Section (High-Level Meetings) Image Container */
+
+/* --- Card and Layout Sizing --- */
+.card-float {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.card-float:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) !important;
+}
+.card-hover-shadow:hover {
+    box-shadow: 0 0 15px rgba(255, 195, 0, 0.5) !important;
+}
 .image-equal-container {
     height: 300px; 
     display: flex;
@@ -92,19 +124,19 @@ body {
     overflow: hidden; 
 }
 .image-equal-container img {
-    height: 200px; /* Fixed image height */
+    height: 200px; 
     width: 100%;
-    object-fit: cover; /* Crop to fit container */
+    object-fit: cover; 
 }
 
-/* 2. Gallery Section Image Container */
+/* 2. Gallery Teaser (Index Page) Container */
 .gallery-box {
     overflow: hidden;
     margin-bottom: 20px;
     border: 5px solid var(--color-white);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
-    height: 250px; 
+    height: 250px; /* Fixed container height */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -115,26 +147,82 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 .gallery-box img {
-    height: 200px; /* Fixed height for gallery images */
+    height: 200px; /* Fixed height for teaser images */
     object-fit: cover;
     width: 100%;
 }
+
+/* 3. Full Gallery Page (gallery.html) Container FIX */
+.gallery-box-full {
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 5px solid var(--color-white);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    height: 300px; /* Taller fixed container height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.gallery-box-full:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+.gallery-box-full img {
+    height: 250px; /* Fixed height for full gallery images */
+    object-fit: cover;
+    width: 100%;
+}
+/* Crucial Fix: Ensure captions do not change total card height */
+.gallery-box-full .caption {
+    flex-shrink: 0;
+    max-height: 50px; 
+    overflow: hidden;
+    padding-top: 5px;
+}
+
+/* 4. Gallery Placeholder Styling */
+.gallery-box-placeholder {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--color-indigo-light-bg);
+    background-color: var(--color-white);
+    transition: box-shadow 0.3s;
+}
+.gallery-box-placeholder:hover {
+    box-shadow: 0 0 10px rgba(26, 35, 126, 0.5);
+}
+
+/* 5. Video Gallery Card Styling */
+.video-card {
+    border: 1px solid var(--color-indigo-light-bg);
+    background-color: var(--color-white);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%; /* Ensure cards in a row are equal height */
+}
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
 
 /* --- Awards Logos (Lady Legends & ITAP) --- */
 .awards-logo {
     max-width: 250px;
     height: auto;
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+    max-height: 80px; 
+    object-fit: contain;
 }
 .logo-filter {
-    /* Filter for Raja Ratna Trust Logo on dark BG */
     filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(255, 195, 0, 0.8));
 }
 
 /* --- Other Visual Effects --- */
-.card-float { transition: transform 0.4s ease, box-shadow 0.4s ease; }
-.card-float:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) !important; }
-.card-hover-shadow:hover { box-shadow: 0 0 15px rgba(255, 195, 0, 0.5) !important; }
 .timeline { border-left: 3px solid var(--color-indigo-light-bg); padding-left: 20px; position: relative; }
 .timeline-item:before {
     content: ''; position: absolute; left: -28px; top: 5px; width: 15px; height: 15px; border-radius: 50%;
@@ -145,7 +233,5 @@ body {
 .btn-social-icon:hover { background-color: var(--color-yellow); color: var(--color-indigo-dark) !important; }
 .footer-link:hover { color: var(--color-yellow) !important; padding-left: 5px; transition: padding-left 0.2s; }
 .quote-box { background-color: rgba(255, 255, 255, 0.1); border-left: 5px solid var(--color-yellow); }
-.btn-yellow { background-color: var(--color-yellow); border-color: var(--color-yellow); color: var(--color-indigo-dark); transition: background-color 0.3s, transform 0.3s; }
-.btn-yellow:hover { background-color: #FFD750; transform: translateY(-2px); }
 @keyframes pulse-yellow { 0% { box-shadow: 0 0 0 0 rgba(255, 195, 0, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(255, 195, 0, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 195, 0, 0); } }
 .pulse-effect-yellow { animation: pulse-yellow 2s infinite; }
